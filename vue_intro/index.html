@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.css">
+
+    <style>
+        .bg-lvue{
+            background-color: #01806a;
+        }
+        .canvas{
+            margin: auto;
+            width: 60%;
+            border: 3px solid #73AD21;
+            padding: 50px;
+
+            }
+    </style>
+</head>
+
+<body>
+
+    
+
+    <div id="app" class="">
+        <h4 class="p-2 bg-lvue text-white text-center">{{title}}</h4>
+
+        <p>Me: Who are you?</p>
+        <p>Unknown: {{ task() }}</p>
+        <hr>
+        <p>Me: What time is it?</p>
+        <p>{{name}}: {{morning('Morning')}}</p>
+        <hr>
+        <p>Me:Do you have github account?</p>
+        <p>{{name}}: Yes. <a v-bind:href="url" class="btn btn-sm btn-outline-success">Click here</a></p>
+        <hr>
+        <p>Me:I don't like the hover effect. Can you change it?</p>
+        <p>{{name}}: Yes. <a v-bind:href="url" v-bind:class="classes">Click here</a></p>
+        <hr>
+        <p>Me: Hey can you write your mail here?</p>
+        <p>{{name}}: <input type="text" v-bind:value="mailed"> </p>
+        <hr>
+        <p>Me: Hey! How do i incerase my phone brightness? <span class="badge badge-primary">{{volumed}}</span></p>
+        
+        <p>{{name}}: Click here! <button v-on:click="volumed++">Increase</button></p>
+        <p>Me: And Decrease?</p>
+        <p>{{name}}: Click here! <button v-on:click="volumed--">Decrease</button></p>
+        <hr>
+        <p>Me: Can you give me 5 dollar? My balance: <span class="badge badge-warning">{{balance}}</span></p>
+        <p>{{name}}: Take it: <button v-on:click="addBalance(5)">Take</button></p>
+        <p>{{name}}: Hey! give my money back with double click: <button v-on:dblclick="addBalance(-5)">Give</button> </p>
+        <hr>
+
+        <p>Me: Let me know what you are doing. move your mouse to the box</p>
+        <p>{{name}}:</p>
+        
+            <div class="canvas text-dark text-center mb-2" @mousemove="logInfo">
+                <p >{{gokusposition.x}},{{gokusposition.y}}</p>
+            </div>
+
+        <hr>
+        <p>Me: Hey i think. We should learn: <span class="badge badge-info">{{todo}}</span>.</p>
+        <p>Goku: Let me change: <input type="text" :value="todo" @keyup="updateName"></p>
+        <p>Me: Let me Do: <input type="text" v-model="todo" :value="todo"></p>
+
+        <hr>
+        <p>Me: <button @click.alt="myMsg">HOLD alt and CLICK here</button></p>
+        <p>Goku: <a href="https://wwww.google.com" class="btn btn-sm btn-dark" @click.prevent="myMsg">Google.com (Prevent)</a></p>
+        
+        <hr>
+        <p>Me: Hey wanna see magic?</p>
+        <p v-if="showMagic" class="badge badge-danger">hahahaha...</p>
+        <p>{{name}}: ok!!</p>
+        <p>Me: <button @click='magicShow'>Yes?</button>
+            <!-- <button @click="noShow">No?</button> -->
+        </p>
+        <hr>
+        <p>Me: Can you say {{items}}</p>
+        <p>{{name}}:</p>
+        <ul>
+            <li v-for="item in items">
+                {{item}}
+            </li>
+        </ul>
+
+        <div v-for="(data,index) in my_data">
+            <p>{{index+1}}===Movie: {{data.movie}} and rating: {{data.rating}}</p>
+                <!-- <p></p> -->
+        </div>
+        
+
+
+
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
