@@ -1,17 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+ <div>
+  <h1>Something like that {{ title }}</h1>
+  <p class="p-2 bg-success text-white" ref="red">Make me red</p>
+  <button class="btn btn-sm btn-danger" @click="handleClick">RED</button>
+
+  <Modal />
+ </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Modal from './components/Modal.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components:{
+      Modal,
+    },
+  data() {
+    return {
+      title: "something",
+    };
+  },
+  methods: {
+    handleClick() {
+      this.$refs.red.classList.add("bg-danger");
+      this.$refs.red.focus();
+    },
+  },
+};
 </script>
 
 <style>
