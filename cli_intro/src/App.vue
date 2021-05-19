@@ -5,7 +5,7 @@
   <button class="btn btn-sm btn-danger" @click="handleClick">RED</button>
 
   <!-- <Modal header="something like that" :mylist="" /> -->
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <Modal :myheader="myheader" theme="red" @close="toggleModal">
       <h4>This is slot</h4>
 
@@ -15,8 +15,19 @@
         </div>
       </template>
     </Modal> 
+  </teleport>
+
+    <div v-if="showModalSecond">
+    <Modal :myheader="myheader"  @close="toggleModalSecond">
+      <h4>This is second modal</h4>
+      <p>ok</p>
+
+     
+    </Modal> 
   </div>
   <button class="btn btn-sm btn-success" @click="toggleModal">show me</button>
+  <button class="btn btn-sm btn-info" @click="toggleModalSecond">show me seocnd</button>
+
 
 
 
@@ -38,6 +49,7 @@ export default {
       title: "something",
       myheader:"My Header",
       showModal:false,
+      showModalSecond:false,
     };
   },
   methods: {
@@ -47,6 +59,9 @@ export default {
     },
     toggleModal(){
       this.showModal = !this.showModal
+    },
+    toggleModalSecond(){
+      this.showModalSecond = !this.showModalSecond
     }
   },
 };
