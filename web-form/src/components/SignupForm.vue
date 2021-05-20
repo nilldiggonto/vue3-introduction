@@ -117,6 +117,10 @@ export default {
         },
         handleSubmit(){
             this.passwordError = this.password.length > 5 ? '' : 'Passowrd must be at least 6 character'
+
+            if (!this.passwordError){
+                console.log('done')
+            }
         }
     },
     
