@@ -1,0 +1,8 @@
+{
+    "jobs":[
+        {"title":"ecommerce","id":1,"details":"something"},
+        {"title":"web","id":2,"details":"something"},
+        {"title":"designer","id":3,"details":"something"}
+
+    ]
+}
