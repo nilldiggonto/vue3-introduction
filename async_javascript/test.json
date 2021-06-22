@@ -1,0 +1,17 @@
+[
+    {
+        "text":"this is text",
+        "author":"me"
+        
+    },
+    {
+        "text":"this is second text",
+        "author":"me two"
+        
+    },
+    {
+        "text":"this is third text",
+        "author":"me third"
+        
+    }
+]
